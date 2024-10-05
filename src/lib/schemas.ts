@@ -1,20 +1,19 @@
 import { z } from 'zod'
 
+const clearValue = (val: string) =>
+  val.slice(2).replaceAll('.', '').replace(',', '.')
+
 export const TransactionSchema = z
   .object({
-    amount: z.preprocess(
-      (val) => {
-        if (typeof val === 'string') {
-          const clearedValue = val
-            .replace('R$ ', '')
-            .replaceAll('.', '')
-            .replace(',', '.')
-          return parseFloat(clearedValue)
-        }
-        return val
-      },
-      z.number().min(0.01, 'O valor deve ser maior que zero.'),
-    ),
+    amount: z
+      .string()
+      .refine((val) => val.trim() !== '', 'O campo valor é obrigatório.')
+      .refine((val) => {
+        const clearedValue = clearValue(val)
+        const parsedValue = parseFloat(clearedValue)
+        return !isNaN(parsedValue) && parsedValue >= 0.01
+      }, 'O valor deve ser maior que zero.')
+      .transform((val) => clearValue(val)),
 
     sender: z
       .string()

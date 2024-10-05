@@ -11,6 +11,7 @@ export function MoneyInput() {
         Valor
       </Label>
       <NumericFormat
+        type="tel"
         prefix="R$ "
         customInput={Input}
         thousandSeparator="."
