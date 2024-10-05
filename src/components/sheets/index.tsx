@@ -4,7 +4,7 @@ import { WithdrawSheet } from './Withdraw'
 
 export function Sheets() {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap justify-between gap-3 sm:justify-start">
       <DepositSheet />
       <WithdrawSheet />
       <TransferSheet />

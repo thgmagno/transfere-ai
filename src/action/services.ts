@@ -19,7 +19,7 @@ export async function deposit(
   }
 
   const query = `
-    CALL deposit(${parsed.data.receiver}, ${parsed.data.amount});
+    CALL trfa_deposit(${parsed.data.receiver}, ${parsed.data.amount});
   `
 
   try {
@@ -51,7 +51,7 @@ export async function transfer(
   }
 
   const query = `
-    CALL transfer(${parsed.data.sender}, ${parsed.data.receiver}, ${parsed.data.amount});
+    CALL trfa_transfer(${parsed.data.sender}, ${parsed.data.receiver}, ${parsed.data.amount});
   `
 
   try {
@@ -82,7 +82,7 @@ export async function withdraw(
   }
 
   const query = `
-    CALL withdraw(${parsed.data.sender}, ${parsed.data.amount});
+    CALL trfa_withdraw(${parsed.data.sender}, ${parsed.data.amount});
   `
 
   try {

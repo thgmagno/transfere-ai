@@ -36,7 +36,7 @@ export function DepositSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" size="sm">
           <ArrowUpIcon className="mr-2 h-5 w-5" />
           Depósito
         </Button>

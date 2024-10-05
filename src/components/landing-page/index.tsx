@@ -8,7 +8,7 @@ import {
 
 export function LandingPage() {
   return (
-    <div className="mx-auto max-w-2xl text-primary-foreground">
+    <div className="mx-auto w-[90%] max-w-2xl text-primary-foreground">
       <Accordion type="single" collapsible className="mt-6 w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger>Saber mais sobre o projeto</AccordionTrigger>

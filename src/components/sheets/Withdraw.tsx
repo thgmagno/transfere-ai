@@ -36,7 +36,7 @@ export function WithdrawSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" size="sm">
           <ArrowDown className="mr-2 h-5 w-5" />
           Saque
         </Button>

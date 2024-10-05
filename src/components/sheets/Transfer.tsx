@@ -36,9 +36,10 @@ export function TransferSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" size="sm">
           <ArrowLeftRight className="mr-2 h-5 w-5" />
-          Transferência
+          <span className="inline md:hidden">Transf.</span>
+          <span className="hidden md:inline">Transferência</span>
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
