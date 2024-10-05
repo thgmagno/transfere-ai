@@ -1,36 +1,9 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bem-vindo ao TransfereAí!
 
-## Getting Started
+TransfereAí! é um projeto voltado para demonstrar e aplicar conceitos de **procedures functions** no contexto de desenvolvimento de sistemas. As transações financeiras são usadas como um exemplo prático, pois ilustram bem a importância de garantir a segurança, eficiência e consistência ao processar operações no banco de dados.
 
-First, run the development server:
+As **procedures functions** são funções armazenadas diretamente no banco de dados, responsáveis por gerenciar múltiplas operações de maneira organizada. Elas asseguram que as ações ocorram de forma atômica — ou seja, tudo ou nada — o que é fundamental quando se trata de operações sensíveis como as financeiras. Caso haja algum erro durante o processo, a procedure reverte automaticamente a operação, garantindo que o banco de dados permaneça consistente e sem falhas.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Além disso, o projeto implementa validações detalhadas para garantir que as informações recebidas estejam corretas antes de processar qualquer operação. Isso inclui verificar se os dados dos usuários são válidos e se as regras de negócio (como evitar que o usuário envie dinheiro para ele mesmo) estão sendo seguidas. Tudo isso visa reforçar o aprendizado sobre como utilizar **procedures** para lidar com cenários reais.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Em essência, o TransfereAí! serve como um laboratório para explorar o uso de **procedures functions**, destacando sua importância na construção de aplicações robustas e seguras.
