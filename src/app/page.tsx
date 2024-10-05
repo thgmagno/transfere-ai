@@ -1,9 +1,10 @@
-import { getUsersInfo } from '@/action'
+import { getAppLogs, getUsersInfo } from '@/action'
 import { Display } from '@/components/display'
 import { LandingPage } from '@/components/landing-page'
+import { AppLogs } from '@/components/logs'
 
 export default async function Home() {
-  const users = await getUsersInfo()
+  const [users, logs] = await Promise.all([getUsersInfo(), getAppLogs()])
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-900 py-24">
@@ -11,6 +12,7 @@ export default async function Home() {
         <Display users={users} />
       </div>
       <LandingPage />
+      <AppLogs logs={logs} />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 'use server'
 
 import { pool } from '@/database'
-import { Users } from '@/lib/dto'
+import { Logs, Users } from '@/lib/dto'
 import { ActionsDBFormState } from '@/lib/states'
 import { revalidatePath } from 'next/cache'
 
@@ -13,6 +13,32 @@ export async function createTableUser(): Promise<ActionsDBFormState> {
           balance NUMERIC(15, 2) NOT NULL DEFAULT 1000.00,
           avatar_url VARCHAR(255) NOT NULL
         );`
+
+  try {
+    await pool.query(query)
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Erro ao criar tabela: ' + error,
+    }
+  }
+
+  return { success: true, message: 'Tabela criada com sucesso!' }
+}
+
+export async function createTableLogs(): Promise<ActionsDBFormState> {
+  const query = `
+      CREATE TABLE logs (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER NOT NULL,
+        user_name TEXT NOT NULL,
+        action TEXT NOT NULL,
+        amount REAL NOT NULL,
+        receiver_id INTEGER,
+        receiver_name TEXT,
+        created_at TIMESTAMP DEFAULT NOW(),
+        CONSTRAINT chk_action CHECK (action IN ('deposit', 'transfer', 'withdraw')));
+  `
 
   try {
     await pool.query(query)
@@ -68,7 +94,11 @@ export async function getUsersInfo(): Promise<Users[]> {
   `
 
   try {
-    await Promise.all([createTableUser(), populateTableUser()])
+    await Promise.all([
+      createTableUser(),
+      populateTableUser(),
+      createTableLogs(),
+    ])
 
     const res = await pool.query(query)
 
@@ -81,7 +111,33 @@ export async function getUsersInfo(): Promise<Users[]> {
 
     return users
   } catch (error) {
-    console.error('Erro ao carregar usuários:', error)
+    console.error('Erro ao carregar usuários: ', error)
+    throw error
+  }
+}
+
+export async function getAppLogs(): Promise<Logs[]> {
+  const query = `SELECT * FROM logs ORDER BY created_at DESC LIMIT 25;`
+
+  try {
+    const res = await pool.query(query)
+
+    const logs: Logs[] = res.rows.map((row) => ({
+      id: row.id,
+      user_id: row.user_id,
+      user_name: row.user_name,
+      action: row.action,
+      amount: row.amount,
+      receiver_id: row.receiver_id ?? null,
+      receiver_name: row.receiver_name ?? null,
+      created_at: new Date(
+        new Date(row.created_at).getTime() - 3 * 60 * 60 * 1000,
+      ),
+    }))
+
+    return logs
+  } catch (error) {
+    console.error('Erro ao carregar logs: ', error)
     throw error
   }
 }
