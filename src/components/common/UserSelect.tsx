@@ -16,8 +16,8 @@ interface Props {
 
 export function UserSelect({ label, name }: Props) {
   return (
-    <div className="grid grid-cols-4 items-center gap-4">
-      <Label className="text-right">{label}</Label>
+    <div className="grid items-center gap-2 md:grid-cols-4 md:gap-4">
+      <Label className="md:text-right">{label}</Label>
       <Select name={name}>
         <SelectTrigger className="col-span-3">
           <SelectValue placeholder="Selecione" />

@@ -36,15 +36,15 @@ export function DepositSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" className="flex-1 md:flex-initial">
           <ArrowUpIcon className="mr-2 h-5 w-5" />
           Depósito
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>Depósito em Conta</SheetTitle>
-          <SheetDescription>
+          <SheetTitle className="text-left">Depósito em Conta</SheetTitle>
+          <SheetDescription className="text-left">
             Insira os detalhes para realizar o depósito na conta selecionada.
             Confirme as informações e clique em confirmar para concluir.
           </SheetDescription>

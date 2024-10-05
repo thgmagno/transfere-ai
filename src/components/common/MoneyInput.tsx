@@ -6,8 +6,8 @@ import { Input } from '../ui/input'
 
 export function MoneyInput() {
   return (
-    <div className="grid grid-cols-4 items-center gap-4">
-      <Label htmlFor="amount" className="text-right">
+    <div className="grid items-center gap-2 md:grid-cols-4 md:gap-4">
+      <Label htmlFor="amount" className="md:text-right">
         Valor
       </Label>
       <NumericFormat

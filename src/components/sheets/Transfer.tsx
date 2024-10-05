@@ -36,7 +36,7 @@ export function TransferSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" className="flex-1 md:flex-initial">
           <ArrowLeftRight className="mr-2 h-5 w-5" />
           <span className="inline md:hidden">Transf.</span>
           <span className="hidden md:inline">Transferência</span>
@@ -44,8 +44,10 @@ export function TransferSheet() {
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>Transferência entre Contas</SheetTitle>
-          <SheetDescription>
+          <SheetTitle className="text-left">
+            Transferência entre Contas
+          </SheetTitle>
+          <SheetDescription className="text-left">
             Insira os detalhes para realizar a transferência entre as contas
             selecionadas. Verifique as informações e clique em confirmar para
             concluir a operação.

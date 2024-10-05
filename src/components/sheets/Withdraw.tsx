@@ -36,15 +36,15 @@ export function WithdrawSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="sm">
+        <Button variant="outline" size="sm" className="flex-1 md:flex-initial">
           <ArrowDown className="mr-2 h-5 w-5" />
           Saque
         </Button>
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>Efetuar Saque</SheetTitle>
-          <SheetDescription>
+          <SheetTitle className="text-left">Efetuar Saque</SheetTitle>
+          <SheetDescription className="text-left">
             Insira os detalhes para realizar o saque da conta selecionada.
             Verifique as informações e clique em confirmar para concluir a
             operação.
