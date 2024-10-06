@@ -67,3 +67,17 @@
     @apply font-semibold italic;
   }
 }
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    @apply w-2 fixed
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-zinc-900
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-600
+  }
+}

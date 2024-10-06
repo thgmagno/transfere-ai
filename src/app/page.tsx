@@ -1,7 +1,6 @@
 import { getAppLogs, getUsersInfo } from '@/action'
+import { Accordion } from '@/components/accordion'
 import { Display } from '@/components/display'
-import { LandingPage } from '@/components/landing-page'
-import { AppLogs } from '@/components/logs'
 
 export default async function Home() {
   const [users, logs] = await Promise.all([getUsersInfo(), getAppLogs()])
@@ -11,8 +10,7 @@ export default async function Home() {
       <div className="w-[96%] max-w-2xl p-2 md:-translate-y-10">
         <Display users={users} />
       </div>
-      <LandingPage />
-      <AppLogs logs={logs} />
+      <Accordion logs={logs} />
     </div>
   )
 }
