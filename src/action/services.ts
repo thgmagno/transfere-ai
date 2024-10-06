@@ -50,6 +50,14 @@ export async function transfer(
     return { success: false, message: parsed.error.errors[0].message }
   }
 
+  if (!parsed.data.sender || !parsed.data.receiver) {
+    return {
+      success: false,
+      message:
+        'É necessário informar usuário de destino e usuário de origem para realizar transferência.',
+    }
+  }
+
   const query = `
     CALL trfa_transfer(${parsed.data.sender}, ${parsed.data.receiver}, ${parsed.data.amount});
   `
