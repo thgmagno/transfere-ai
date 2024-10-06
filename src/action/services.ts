@@ -54,7 +54,7 @@ export async function transfer(
     return {
       success: false,
       message:
-        'É necessário informar usuário de destino e usuário de origem para realizar transferência.',
+        'É necessário informar usuário de origem e usuário de destino para realizar transferência.',
     }
   }
 
